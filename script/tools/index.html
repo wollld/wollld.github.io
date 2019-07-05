@@ -30,7 +30,7 @@
 
 		}
 		ul#output{
-			padding-left: 49px;
+			padding-left: 10px;
     		list-style-type: none;
 		}
 	</style>
@@ -38,10 +38,10 @@
 <body>
 	<div class="content">
 		<div style="flex:1;font-size:28px;color:#999;">
-			<div>input: <span id="input"></span></div>
+			<div>input: <span id="input" style="font-size:18px;"></span></div>
 			<div>output:</div>
-			<ul id="output"></ul>
-			<img src="./code.png" alt="" style="width:80px;position:absolute;top:0;right:0;">
+			<ul id="output" style="font-size:20px;"></ul>
+			<img src="./code.png" alt="" style="width:140px;position:absolute;top:0;right:0;">
 		</div>
 		<ul style="height:186px" class="box">
 			<li>A</li>
@@ -72,13 +72,15 @@
 		for(var i=0;i<arr.length;i++){
 			for(var j=0;j<arr.length;j++){
 				var sortStrArr= the3.map(function(item){return item.sort().join()})
-				var s= arr.slice();
+				var s= arr.slice(),
+					a= s[i],
+					b= s[j];
 				delete s[i];
 				delete s[j];
 				var the3insert= s.filter(function(item){return item})
 
-				if(i<j && !sortStrArr.include(the3insert.sort().join())){
-					other2.push([s[i],s[j]])
+				if(i<j && !sortStrArr.includes(the3insert.sort().join())){
+					other2.push([a,b])
 					the3.push(the3insert  )
 				}
 			}
