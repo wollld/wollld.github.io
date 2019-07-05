@@ -37,7 +37,7 @@
 </head>
 <body>
 	<div class="content">
-		<div style="flex:1;font-size:32px;color:#999;">
+		<div style="flex:1;font-size:28px;color:#999;">
 			<div>input: <span id="input"></span></div>
 			<div>output:</div>
 			<ul id="output"></ul>
@@ -71,12 +71,15 @@
 		
 		for(var i=0;i<arr.length;i++){
 			for(var j=0;j<arr.length;j++){
-				if(i<j){
-					var s= arr.slice();
+				var sortStrArr= the3.map(function(item){return item.sort().join()})
+				var s= arr.slice();
+				delete s[i];
+				delete s[j];
+				var the3insert= s.filter(function(item){return item})
+
+				if(i<j && !sortStrArr.include(the3insert.sort().join())){
 					other2.push([s[i],s[j]])
-					delete s[i];
-					delete s[j];
-					the3.push( s.filter(function(item){return item}) )
+					the3.push(the3insert  )
 				}
 			}
 		}
